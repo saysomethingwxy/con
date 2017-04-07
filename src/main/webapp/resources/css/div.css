@@ -1,0 +1,230 @@
+@CHARSET "UTF-8";
+
+.login {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 383px;
+}
+
+.log1 {
+	position: absolute;
+	top: 30%;
+	left: 46%;
+	transform: translate(-50%, -50%);
+}
+
+.log2 {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.log3 {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.log4 {
+	position: absolute;
+	top: 65%;
+	left: 57%;
+	transform: translate(-50%, -50%);
+}
+
+.log5 {
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.head1 {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 80px;
+}
+
+.head2 {
+	position: absolute;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	float: left;
+	left: 10%;
+}
+
+.head3 {
+	position: absolute;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 50%;
+}
+
+.head4 {
+	position: absolute;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 60%;
+}
+
+.head5 {
+	position: absolute;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 70%;
+}
+
+.head6 {
+	position: absolute;
+	top: 25%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 80%;
+}
+
+.head7 {
+	position: absolute;
+	top: 35%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 90%;
+}
+
+.head8 {
+	position: absolute;
+	top: 32%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 65%;
+}
+
+.head9 {
+	position: absolute;
+	top: 32%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 80%;
+}
+
+.shead {
+	position: absolute;
+	top: 37%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 20px;
+	float: left;
+	left: 25%;
+}
+
+.btnhead {
+	position: absolute;
+	top: 37%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 20px;
+	float: left;
+	left: 41%;
+}
+.cons1 {
+	position: absolute;
+	top: 250px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 900px;
+}
+
+.cons2 {
+	position: absolute;
+	top: 55%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	width: 900px;
+	margin-top: 30px;
+}
+
+.cons3 {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+}
+
+.mess1 {
+	position: absolute;
+	top: 250px;;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 900px;
+	background-color: #FFFFFF;
+}
+
+.mess2 {
+	position: absolute;
+	top: 500px;;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 900px;
+	background-color: #FFFFFF;
+}
+.mess3 {
+	position: absolute;
+	top: 250px;;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 900px;
+	background-color: #FFFFFF;
+}
+
+.for1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 700px;
+	height: 400px;
+}
+
+.friend1 {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	background-color: #ffffff;
+}
+
+.friend2 {
+	position: absolute;
+	top: 20%;
+	left: 40%;
+}
+
+.friend3 {
+	position: absolute;
+	top: 20%;
+	left: 80%;
+	background-color: #ffffff;
+}
+.reg1 {
+	position: absolute;
+	top: 10%;
+	left: 30%;
+	background-color: #ffffff;
+}
+.reg2 {
+	position: absolute;
+	left: 50%;
+}
