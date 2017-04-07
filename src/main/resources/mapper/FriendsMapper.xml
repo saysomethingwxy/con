@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yonyou.cons.dao.Con">
+
+	<resultMap type="com.yonyou.cons.entity.Friends"  id="friends">
+		<result column="userId" property="userId" jdbcType="VARCHAR" />
+		<result column="uId" property="uId" jdbcType="VARCHAR" />
+		<result column="startDate" property="startDate" jdbcType="INTEGER" />
+		<association property="user" resultMap="com.yonyou.cons.dao.User.User"/>
+	</resultMap>
+
+	<!-- 根据 关系状态和员工号查找
+	<select id="" parameterType="" resultMap="friends">
+		SELECT id,userName,picture
+		FROM USER u
+		INNER JOIN friends f
+		ON
+		u.id=f.userid
+		WHERE f.state=0
+		AND f.uid=#{uid}
+	</select> -->
+
+	<!-- 添加好友关系 
+	<insert id="addFriend">
+		INSERT INTO friends (userid,uid,state)
+		VALUES
+		(#{userid},#{uid},#{state})
+	</insert>-->
+
+	<!-- 根据员工号获取好友 
+	<select id="findFriendsById">
+		SELECT DISTINCT u.id
+		FROM USER u,
+		(SELECT uid FROM friends WHERE userid=#{userid} AND state=1) b,
+		(SELECT userid FROM friends WHERE uid=#{uid} AND state=1) c
+		WHERE id=b.uid
+		OR id=c.userid
+	</select>-->
+
+</mapper>
