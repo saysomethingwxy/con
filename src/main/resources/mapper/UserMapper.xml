@@ -34,15 +34,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{userid},#{role},#{username},#{email},#{sex},#{password},#{company},#{picture},#{date})
 	</insert> 
 
-	<!-- 更新用户信息
-	<update id="">
+	<!-- 更新用户信息 -->
+	<update id="updateUserById" parameterType="com.yonyou.cons.entity.User">
 		UPDATE USER
 		<set>
-			<if test="username != null and username != ''">#{username}</if>
-			<if test="picture != null and picture != ''">#{picture}</if>
+			<if test="username != null and username != ''">username=#{username}</if>
 		</set>
-		WHERE id=#{id}
-	</update> -->
+		WHERE userid=#{userid}
+	</update>
 
 	<!-- 根据用户id查找好友用户 -->
 	<select id="findUserById" parameterType="com.yonyou.cons.entity.User" resultMap="User">

@@ -83,5 +83,17 @@ public class UserService {
     return false;
   }
 
+  /**
+   * 
+   * @Title:changeUserinfo
+   * @Description:TODO 更新用户信息，修改设置
+   * @param user
+   * @return
+   * @author winxinyuan
+   */
+  public int changeUserinfo(User user) {
+    return userDao.updateUserById(user);
+  }
+
 
 }

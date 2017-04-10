@@ -62,10 +62,25 @@ public class UserController {
     request.getSession().setAttribute("user", user);
     return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功");
   }
-  @RequestMapping(value="update")
-  public CommonResponse login(@RequestBody User user){
-    
-    return null;
-    
+
+  @RequestMapping(value = "change")
+  public CommonResponse changeUser(@RequestBody User user) {
+    try {
+      // 非空判断
+      if (null == user) {
+        return new CommonResponse(CodeEnum.NULLUSER_CODE.getCode(), "参数不合法");
+      }
+      if(StringUtils.isEmpty(user.getUsername())||StringUtils.isEmpty(user.getUserid())){
+       return new CommonResponse(CodeEnum.NULLUSER_CODE.getCode(), "用户信息不能为空");
+      }
+      int line = userService.changeUserinfo(user);
+      //根据受影响行判断是否插入成功
+      if(line<=0){
+        return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "插入数据库失败");
+      }
+      return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功");
+      } catch (Exception e) {
+      return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
+    }
   }
 }

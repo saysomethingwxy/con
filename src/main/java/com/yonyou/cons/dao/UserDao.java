@@ -35,7 +35,7 @@ public interface UserDao {
    * @return
    * @author winxinyuan
    */
-//  public int deleteUserById(String id);
+  // public int deleteUserById(String id);
 
   /**
    * 
@@ -45,24 +45,24 @@ public interface UserDao {
    * @return
    * @author winxinyuan
    */
-//  public int updateUserById(User user);
-/**
- * 
- *@Title:findUsersById  
- * @Description:查找所有用户信息
- * @return
- * @author winxinyuan
- */
-//  public List<User> findUsersById();
+  public int updateUserById(User user);
+  /**
+   * 
+   * @Title:findUsersById
+   * @Description:查找所有用户信息
+   * @return
+   * @author winxinyuan
+   */
+  // public List<User> findUsersById();
 
- /**
-  * 
-  *@Title:findUserById  
-  * @Description:根据员工姓名或员工号查找员工
-  * @param user
-  * @return
-  * @author winxinyuan
-  */
+  /**
+   * 
+   * @Title:findUserById
+   * @Description:根据员工姓名或员工号查找员工
+   * @param user
+   * @return
+   * @author winxinyuan
+   */
   public User findUserById(User user);
 
 }
