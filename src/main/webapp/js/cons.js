@@ -85,45 +85,46 @@ function register() {
 		$("#id1").text("员工号不能为空！");
 		flag = 0;
 	}
-	var yzm = $("#yzm");
-	check(yzm);
+	// var yzm = $("#yzm");
+	// check(yzm);
 	if (flag == 0) {
 		return false;
 	}
-	var sex;
-	var role;
-	var datas={
-			"userid":id,
-			"username":name,
-			"sex":sex,
-			"password":password,
-			"email":mail,
-			"role":role,
+	var sex = $("input[name='sex'][checked]").val();
+	alert(sex);
+	var role = $("input[name='role'][checked]").val();
+	var datas = {
+		"userid" : id,
+		"username" : name,
+		"sex" : sex,
+		"password" : password,
+		"email" : mail,
+		"role" : role,
 	}
 	if (flag == 1) {
-		$.ajax({  
-	    	type:'POST',  
-	    	dataType:"json",
-			contentType: "application/json;charset=UTF-8",
-	      	data: JSON.stringify(datas),
-	  		url:'user/register',
-	 		success:function(data) {
-	 			if(data.code=="1001"){
-	 				$("#mail1").text(data.msg);
-	 			}
-	 			if(data.code=="0000"){
-	 				alert(data.msg);
-	 				window.location.href ="/yonyoucon/mainshow.html";
-	 			}
-	 			if(data.code=="9999"){
-	 				//$("#mail1").text(data.msg);
-	 			}
-	     	},
-	     	error:function(){  
-	     		console.log("请求失败");
-	     		
-	       	},
-		});  
+		$.ajax({
+			type : 'POST',
+			dataType : "json",
+			contentType : "application/json;charset=UTF-8",
+			data : JSON.stringify(datas),
+			url : 'user/regester',
+			success : function(data) {
+				if (data.code == "1001") {
+					$("#mail1").text(data.msg);
+				}
+				if (data.code == "0000") {
+					alert(data.msg);
+					window.location.href = "/yonyoucon/login.html";
+				}
+				if (data.code == "9999") {
+					// $("#mail1").text(data.msg);
+				}
+			},
+			error : function() {
+				console.log("请求失败");
+
+			},
+		});
 	}
 }
 function clean() {
@@ -180,29 +181,28 @@ function checkLog() {
 		"password" : password
 	}
 	if (flag == 1) {
-		$.ajax({  
-	    	type:'POST',  
-	    	dataType:"json",
-			contentType: "application/json;charset=UTF-8",
-	      	data: JSON.stringify(datas),
-	  		url:'user/login',
-	 		success:function(data) {
-	 			if(data.code=="1001"){
-	 				$("#mail1").text(data.msg);
-	 			}
-	 			if(data.code=="0000"){
-	 				alert(data.msg);
-	 				window.location.href ="/yonyoucon/mainshow.html";
-	 			}
-	 			if(data.code=="9999"){
-	 				$("#mail1").text(data.msg);
-	 			}
-	     	},
-	     	error:function(){  
-	     		console.log("请求失败");
-	     		
-	       	},
-		});  
+		$.ajax({
+			type : 'POST',
+			dataType : "json",
+			contentType : "application/json;charset=UTF-8",
+			data : JSON.stringify(datas),
+			url : 'user/login',
+			success : function(data) {
+				if (data.code == "1001") {
+					$("#mail1").text(data.msg);
+				}
+				if (data.code == "0000") {
+					window.location.href = "/yonyoucon/mainshow.jsp";
+				}
+				if (data.code == "9999") {
+					$("#mail1").text(data.msg);
+				}
+			},
+			error : function() {
+				console.log("请求失败");
+
+			},
+		});
 	}
 }
 /**
@@ -236,42 +236,42 @@ function checkCons() {
  * 校验修改设置
  */
 function checkChange() {
-	var flag=0;
+	var flag = 0;
 	var userid = $("#userid").val();
 	var name = $("#name").val();
 	var name1 = $("#name1");
 	if (name == null || name == "") {
 		name1.text("姓名不能为空！");
 	} else {
-		flag=1;
+		flag = 1;
 	}
 	var datas = {
-			"userid" : userid,
-			"username" : name
-		}
+		"userid" : userid,
+		"username" : name
+	}
 	if (flag == 1) {
 		alert(333333);
-		$.ajax({  
-	    	type:'POST',  
-	    	dataType:"json",
-			contentType: "application/json;charset=UTF-8",
-	      	data: JSON.stringify(datas),
-	  		url:'user/change',
-	 		success:function(data) {
-	 			if(data.code=="1001"){
-	 				name1.text(data.msg);
-	 			}
-	 			if(data.code=="0000"){
-	 				window.location.href ="/yonyoucon/mainshow.html";
-	 			}
-	 			if(data.code=="9999"){
-	 				name1.text(data.msg);
-	 			}
-	     	},
-	     	error:function(){  
-	     		console.log("请求失败");
-	     		
-	       	},
-		});  
+		$.ajax({
+			type : 'POST',
+			dataType : "json",
+			contentType : "application/json;charset=UTF-8",
+			data : JSON.stringify(datas),
+			url : 'user/change',
+			success : function(data) {
+				if (data.code == "1001") {
+					name1.text(data.msg);
+				}
+				if (data.code == "0000") {
+					window.location.href = "/yonyoucon/mainshow.html";
+				}
+				if (data.code == "9999") {
+					name1.text(data.msg);
+				}
+			},
+			error : function() {
+				console.log("请求失败");
+
+			},
+		});
 	}
 }

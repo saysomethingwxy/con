@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <script type="application/x-javascript">
@@ -20,6 +23,9 @@
 <script src="js/cons.js"></script>
 <link href="resources/custom.css" rel="stylesheet">
 <body>
+<c:if test="${user!=null}">
+	<input hidden="true" value="${user.userid }" id="userid">
+	</c:if>
 	<div class="head1">
 		<div class="head2">
 			<img src="img/logo.png">
@@ -35,24 +41,24 @@
 			</button>
 		</div>
 		<div class="head3">
-			<a href="mainshow.html" target="main"><img src="img/mycons.png"
+			<a href="mainshow.jsp" target="main"><img src="img/mycons.png"
 				width="70%"></a>
 		</div>
 		<div class="head4">
-			<a href="cons.html" target="main"><img src="img/cons.png"
+			<a href="cons.jsp" target="main"><img src="img/cons.png"
 				width="60%"></a>
 		</div>
 		<div class="head5">
-			<a href="message.html" target="main"><img src="img/message1.png"
+			<a href="message.jsp" target="main"><img src="img/message1.png"
 				width="52%"></a>
 		</div>
 		<div class="head6">
-			<a href="friends.html" target="main"><img src="img/friends1.png"
+			<a href="firends.jsp" target="main"><img src="img/friends1.png"
 				width="51%"></a>
 		</div>
 		<div class="head7">
-			<img width="50px" src="img/me.jpg" class="img-circle"><a href="login.html" class="a" style="text-decoration: none;"
-				target="main">退出登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="change.html" target="main" class="a" style="text-decoration: none;">修改设置</a>
+			<img width="50px" src="img/me.jpg" class="img-circle"><a href="login.jsp" class="a" style="text-decoration: none;"
+				target="main">退出登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="change.jsp" target="main" class="a" style="text-decoration: none;">修改设置</a>
 		</div>
 	</div>
 </body>

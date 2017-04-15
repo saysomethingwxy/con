@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ include file="head.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>用友合同信息平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用友电子合同平台</title>
 </head>
 <script type="application/x-javascript">
 	
@@ -25,10 +28,12 @@
 <link href="resources/custom.css" rel="stylesheet">
 
 <body name="main" background="img/mainbg.jpg">
-	 <iframe name="content_frame" marginwidth=0 marginheight=0 width=100%
+	<!--  <iframe name="content_frame" marginwidth=0 marginheight=0 width=100%
 		height=80 src="head.html" frameborder=0 scrolling="no">
 	</iframe>
-	<input hidden="true" value="66" id="userid">
+	<c:if test="${user!=null}">
+	<input hidden="true" value="${user.userid }" id="userid">
+	</c:if> -->
 	<div class="cons1">
 		<table class="table">
 			<thead>

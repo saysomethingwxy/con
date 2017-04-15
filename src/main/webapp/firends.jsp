@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+         <%@ include file="head.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>用友合同信息平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
@@ -20,8 +23,6 @@
 <script src="js/cons.js"></script>
 <link href="resources/custom.css" rel="stylesheet">
 <body background="img/mainbg.jpg">
-	<iframe name="content_frame" marginwidth=0 marginheight=0 width=100%
-		height=80 src="head.html" frameborder=0 scrolling="no"> </iframe>
 	<div class="friend1">
 		<table style="border-collapse: separate; border-spacing: 15px 30px; width: 300px;">
 			<tr align="center">

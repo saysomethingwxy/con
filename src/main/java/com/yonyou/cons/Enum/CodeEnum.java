@@ -1,7 +1,7 @@
 package com.yonyou.cons.Enum;
 
 public enum CodeEnum {
-  SUCCESS_CODE("0000"), NULLUSER_CODE("1001"), FAIL_CODE("9999");
+  SUCCESS_CODE("0000"), NULLUSER_CODE("1001"), FAIL_CODE("9999"),NULL_CODE("1002");
 
   String code;
 
