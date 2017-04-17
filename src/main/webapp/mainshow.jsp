@@ -42,7 +42,6 @@
 				</tr>
 			</thead>
 			<tbody id="tbody">
-
 			</tbody>
 		</table>
 	</div>

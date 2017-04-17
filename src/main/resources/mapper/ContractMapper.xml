@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id column="conid" property="conid" jdbcType="VARCHAR" />
 		<result column="conname" property="conname" jdbcType="VARCHAR" />
 		<result column="company" property="company" jdbcType="VARCHAR" />
-		<result column="startDate" property="startDate" jdbcType="VARCHAR" />
-		<result column="endDate" property="endDate" jdbcType="VARCHAR" />
+		<result column="starttime" property="startDate" jdbcType="VARCHAR" />
+		<result column="endtime" property="endDate" jdbcType="VARCHAR" />
 		<result column="picture" property="picture" jdbcType="VARCHAR" />
 		<result column="state" property="state" jdbcType="VARCHAR" />
 		<result column="userid" property="userid" jdbcType="VARCHAR" />
