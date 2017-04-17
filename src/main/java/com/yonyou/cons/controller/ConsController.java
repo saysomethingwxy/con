@@ -71,9 +71,30 @@ public class ConsController {
     }
     return mess;
   }
-  
-  @RequestMapping(value="/endcon", method = RequestMethod.GET)
-  public CommonResponse endCon(@RequestParam String conid){
+
+  /**
+   * 
+   * @Title:endCon
+   * @Description:TODO 结束合同，修噶合同执行状态
+   * @param conid
+   * @return
+   * @author winxinyuan
+   */
+  @RequestMapping(value = "/endcon", method = RequestMethod.GET)
+  public CommonResponse endCon(@RequestParam String conid) {
+    //非空判断
+    if(StringUtils.isEmpty(conid)){
+      return new CommonResponse(CodeEnum.NULL_CODE.getCode(), "参数不能为空");
+    }
+    try {
+      int line=consService.updateCon(conid);
+      if(line<=0){
+        return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "修改数据库不成功");
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
+    }
     return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功");
   }
 }

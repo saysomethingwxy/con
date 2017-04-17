@@ -19,37 +19,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="invqty" property="invqty" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="cons">
-	conid,
-	conname,
-	company,
-	starttime,
-	endtime,
-	picture,
-	state,
-	userid,
-	uid
+		conid,
+		conname,
+		company,
+		starttime,
+		endtime,
+		picture,
+		state,
+		userid,
+		uid
 	</sql>
-	<!-- 添加新合同 
-	<insert>
-		INSERT INTO contract
-		(conid,conname,company,starttime,endtime,picture,state,userid,uid)
-		VALUES(#{conid},#{conname},#{company},#{starttime},#{endtime},#{picture},#{state},#{userid},#{uid})
-	</insert>-->
+	<!-- 添加新合同 <insert> INSERT INTO contract (conid,conname,company,starttime,endtime,picture,state,userid,uid) 
+		VALUES(#{conid},#{conname},#{company},#{starttime},#{endtime},#{picture},#{state},#{userid},#{uid}) 
+		</insert> -->
 
 	<!-- 根据相关id查找合同 -->
 	<select id="findContracsByUid" parameterType="String" resultMap="Contract">
 		SELECT
-		<include refid="cons"/>
+		<include refid="cons" />
 		FROM
 		contract
-		where uid=#{userid} or userid=#{userid}
+		where uid=#{userid} or userid=#{userid}  ORDER BY endtime DESC
 	</select>
 
-	<!-- 根据关键字查询合同
-	<select id="">
-		SELECT conid,conname,company,starttime,endtime,picture,state,userid,uid
-		FROM contract
-		WHERE conname LIKE '%1%'
-	</select>
- -->
+	<!-- 根据关键字查询合同 <select id=""> SELECT conid,conname,company,starttime,endtime,picture,state,userid,uid 
+		FROM contract WHERE conname LIKE '%1%' </select> -->
+	<!-- 根据合同id更新合同 -->
+	<update id="updateCon" parameterType="String">
+		update contract
+		set state=1 
+		where conid=#{conid}
+	</update>
 </mapper>

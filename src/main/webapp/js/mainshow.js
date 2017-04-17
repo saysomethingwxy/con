@@ -1,8 +1,9 @@
 init();
 function init() {
 	var userid = $("#userid").val();
-	var username=$("#username").val();
-	$.ajax({
+	var username = $("#username").val();
+	$
+			.ajax({
 				type : 'GET',
 				dataType : "json",
 				contentType : "application/json;charset=UTF-8",
@@ -28,16 +29,17 @@ function init() {
 							tr.children('td').eq(4).html(message.message);
 							if (state == 0) {
 								tr.children('td').eq(5).html("未执行");
-							}
-							if (state == 1) {
-								tr.children('td').eq(5).html("已执行");
-							}
-							if (state == 0) {
 								tr
 										.children('td')
 										.eq(6)
 										.html(
-												"<button value="+conid+" onclick='changeConState(this)' class='btn btn-info'>完成</button>");
+												"<button value="
+														+ conid
+														+ " onclick='changeConState(this)' class='btn btn-info'>完成</button>");
+							}
+							if (state == 1) {
+								tr.children('td').eq(5).html("已执行");
+								tr.children('td').eq(6).html("\\");
 							}
 							tr.children('td').eq(7).html(conid);
 							tbody.append(tr);
@@ -51,8 +53,7 @@ function init() {
 			});
 }
 function changeConState(con) {
-	var obj=$(con);
-	alert(obj.parent());
+	var obj = $(con);
 	var conid = obj.val();
 	$.ajax({
 		type : 'GET',
@@ -60,9 +61,11 @@ function changeConState(con) {
 		contentType : "application/json;charset=UTF-8",
 		url : 'cons/endcon?conid=' + conid,
 		success : function(data) {
-			if(data.code.equals('0000')){
+			if (data.code == '0000') {
+				var tbody = $("tbody");
+				tbody.html("");
 				init();
 			}
-			}
-		})
+		}
+	})
 }

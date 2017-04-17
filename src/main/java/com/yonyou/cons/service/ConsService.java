@@ -2,8 +2,9 @@ package com.yonyou.cons.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.yonyou.cons.dao.ConDao;
@@ -15,6 +16,8 @@ public class ConsService {
   @Autowired
   private ConDao conDao;
 
+  Logger logger = LoggerFactory.getLogger(ConsService.class);
+
   /**
    * 
    * @Title:getConsByUserid
@@ -24,5 +27,9 @@ public class ConsService {
    */
   public List<Contract> getConsByUserid(String userid) {
     return conDao.findContracsByUid(userid);
+  }
+
+  public int updateCon(String conid) {
+    return conDao.updateCon(conid);
   }
 }

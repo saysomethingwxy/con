@@ -68,4 +68,14 @@ public interface ConDao {
    */
   public List<Contract> findContractByWord(String word);
 
+  /**
+   * 
+   * @Title:updateCon
+   * @Description:TODO 更新合同信息
+   * @param conid
+   * @return
+   * @author winxinyuan
+   */
+  public int updateCon(String conid);
+
 }
