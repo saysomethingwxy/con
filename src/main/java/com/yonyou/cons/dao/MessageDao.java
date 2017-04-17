@@ -29,7 +29,7 @@ public interface MessageDao {
    * @return
    * @author winxinyuan
    */
-  public List<Message> findMessagesByCid(String Cid);
+  public Message findMessagesByCid(String cid);
 
   /**
    * 

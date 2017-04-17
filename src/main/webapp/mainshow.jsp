@@ -28,12 +28,6 @@
 <link href="resources/custom.css" rel="stylesheet">
 
 <body name="main" background="img/mainbg.jpg">
-	<!--  <iframe name="content_frame" marginwidth=0 marginheight=0 width=100%
-		height=80 src="head.html" frameborder=0 scrolling="no">
-	</iframe>
-	<c:if test="${user!=null}">
-	<input hidden="true" value="${user.userid }" id="userid">
-	</c:if> -->
 	<div class="cons1">
 		<table class="table">
 			<thead>
@@ -44,85 +38,14 @@
 					<th>详细</th>
 					<th>提醒信息</th>
 					<th>状态</th>
+					<th>完成合同</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
-				<tr>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>产品1</td>
-					<td>23/11/2013</td>
-					<td>待发货</td>
-				</tr>
+			<tbody id="tbody">
+
 			</tbody>
 		</table>
 	</div>
-	
 </body>
 
 </html>

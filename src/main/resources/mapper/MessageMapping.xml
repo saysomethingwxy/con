@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yonyou.cons.dao.MessageDao">
+
+	<resultMap type="com.yonyou.cons.entity.Message" id="Message">
+		<result column="userid" property="userid" jdbcType="VARCHAR" />
+		<result column="uid" property="uid" jdbcType="VARCHAR" />
+		<result column="message" property="message" jdbcType="VARCHAR" />
+		<result column="cid" property="cid" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="mess">
+		userid,
+		uid,
+		cid,
+		date,
+		message
+	</sql>
+	<!-- 根据cid,userid/uid获取信息 -->
+	<select id="findMessagesByCid" parameterType="String" resultMap="Message">
+		SELECT
+		<include refid="mess" />
+		FROM
+		message
+		WHERE cid=#{cid}
+	</select>
+
+
+</mapper>

@@ -4,7 +4,7 @@ public class Contract {
   /**
    * 合同id
    */
-  private String conId;
+  private String conid;
   /**
    * 合同名称
    */
@@ -32,18 +32,20 @@ public class Contract {
   /**
    * 签署人
    */
-  private String userId;
+  private String userid;
   /**
    * 负责人
    */
-  private String uId;
+  private String uid;
 
-  public String getConId() {
-    return conId;
+  
+
+  public final String getConid() {
+    return conid;
   }
 
-  public void setConId(String conId) {
-    this.conId = conId;
+  public final void setConid(String conid) {
+    this.conid = conid;
   }
 
   public String getConname() {
@@ -94,21 +96,23 @@ public class Contract {
     this.state = state;
   }
 
-  public String getUserId() {
-    return userId;
+  public final String getUserid() {
+    return userid;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public final void setUserid(String userid) {
+    this.userid = userid;
   }
 
-  public String getuId() {
-    return uId;
+  public final String getUid() {
+    return uid;
   }
 
-  public void setuId(String uId) {
-    this.uId = uId;
+  public final void setUid(String uid) {
+    this.uid = uid;
   }
+
+ 
 
 
 }

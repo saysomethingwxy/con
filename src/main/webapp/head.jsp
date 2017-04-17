@@ -25,6 +25,7 @@
 <body>
 <c:if test="${user!=null}">
 	<input hidden="true" value="${user.userid }" id="userid">
+	<input hidden="true" value="${user.username }" id="username">
 	</c:if>
 	<div class="head1">
 		<div class="head2">

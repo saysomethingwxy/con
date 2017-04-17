@@ -52,11 +52,11 @@ public interface ConDao {
    * 
    * @Title:findContracsByUid
    * @Description:根据用户id查找合同信息
-   * @param uid 用户id
+   * @param userid 用户id
    * @return
    * @author winxinyuan
    */
-  public List<Contract> findContracsByUid(User user);
+  public List<Contract> findContracsByUid(String userid);
 
   /**
    * 

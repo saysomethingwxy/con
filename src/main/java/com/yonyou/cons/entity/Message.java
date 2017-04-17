@@ -4,15 +4,15 @@ public class Message {
   /**
    * 合同id
    */
-  private String conId;
+  private String cid;
   /**
    * 发送人
    */
-  private String userId;
+  private String userid;
   /**
    * 被提醒人
    */
-  private String uId;
+  private String uid;
   /**
    * 消息
    */
@@ -21,46 +21,35 @@ public class Message {
    * 时间
    */
   private String date;
-
-  public String getConId() {
-    return conId;
+ 
+  public final String getCid() {
+    return cid;
   }
-
-  public void setConId(String conId) {
-    this.conId = conId;
+  public final void setCid(String cid) {
+    this.cid = cid;
   }
-
-  public String getUserId() {
-    return userId;
+  public final String getUserid() {
+    return userid;
   }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public final void setUserid(String userid) {
+    this.userid = userid;
   }
-
-  public String getuId() {
-    return uId;
+  public final String getUid() {
+    return uid;
   }
-
-  public void setuId(String uId) {
-    this.uId = uId;
+  public final void setUid(String uid) {
+    this.uid = uid;
   }
-
-  public String getMessage() {
+  public final String getMessage() {
     return message;
   }
-
-  public void setMessage(String message) {
+  public final void setMessage(String message) {
     this.message = message;
   }
-
-  public String getDate() {
+  public final String getDate() {
     return date;
   }
-
-  public void setDate(String date) {
+  public final void setDate(String date) {
     this.date = date;
   }
-
-
 }
