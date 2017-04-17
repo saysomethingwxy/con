@@ -28,6 +28,17 @@
 <link href="resources/custom.css" rel="stylesheet">
 
 <body name="main" background="img/mainbg.jpg">
+
+<div class="shead">
+			<input type="text" name="search" onfocus="changinp(this)"
+				onblur="changeinput(this)" class="form-control"
+				placeholder="搜索合同关键字" style="width: 300px;">
+		</div>
+		<div class="btnhead">
+			<button class="btn btn-success">
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+		</div>
 	<div class="cons1">
 		<table class="table">
 			<thead>

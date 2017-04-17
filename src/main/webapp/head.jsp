@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>用友电子合同平台</title>
 </head>
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
@@ -27,19 +27,9 @@
 	<input hidden="true" value="${user.userid }" id="userid">
 	<input hidden="true" value="${user.username }" id="username">
 	</c:if>
-	<div class="head1">
+	<div class="head1" style="background-color: white">
 		<div class="head2">
 			<img src="img/logo.png">
-		</div>
-		<div class="shead">
-			<input type="text" name="search" onfocus="changinp(this)"
-				onblur="changeinput(this)" class="form-control"
-				placeholder="搜索合同关键字" style="width: 300px;">
-		</div>
-		<div class="btnhead">
-			<button class="btn btn-success">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
 		</div>
 		<div class="head3">
 			<a href="mainshow.jsp" target="main"><img src="img/mycons.png"

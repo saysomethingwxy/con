@@ -56,7 +56,7 @@
 	top: 40%;
 	transform: translate(-50%, -50%);
 	float: left;
-	left: 10%;
+	left: 15%;
 }
 
 .head3 {
@@ -65,7 +65,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 50%;
+	left: 35%;
 }
 
 .head4 {
@@ -74,7 +74,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 60%;
+	left: 48%;
 }
 
 .head5 {
@@ -83,7 +83,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 70%;
+	left: 58%;
 }
 
 .head6 {
@@ -92,7 +92,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 80%;
+	left: 68%;
 }
 
 .head7 {
@@ -101,7 +101,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 90%;
+	left: 85%;
 }
 
 .head8 {
@@ -124,7 +124,7 @@
 
 .shead {
 	position: absolute;
-	top: 37%;
+	top: 20%;
 	transform: translate(-50%, -50%);
 	width: 100px;
 	height: 20px;
@@ -134,12 +134,12 @@
 
 .btnhead {
 	position: absolute;
-	top: 37%;
+	top: 20%;
 	transform: translate(-50%, -50%);
 	width: 100px;
 	height: 20px;
 	float: left;
-	left: 41%;
+	left: 45%;
 }
 .cons1 {
 	position: absolute;
