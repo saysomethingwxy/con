@@ -19,15 +19,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="invqty" property="invqty" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="cons">
-		conid,
-		conname,
-		company,
-		starttime,
-		endtime,
-		picture,
-		state,
-		userid,
-		uid
+		contract.conid,
+		contract.conname,
+		contract.starttime,
+		contract.endtime,
+		contract.picture,
+		contract.state,
+		contract.userid,
+		contract.uid,
+		username
 	</sql>
 	<!-- 添加新合同 <insert> INSERT INTO contract (conid,conname,company,starttime,endtime,picture,state,userid,uid) 
 		VALUES(#{conid},#{conname},#{company},#{starttime},#{endtime},#{picture},#{state},#{userid},#{uid}) 
@@ -39,15 +39,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="cons" />
 		FROM
 		contract
-		where uid=#{userid} or userid=#{userid}  ORDER BY endtime DESC
+		inner join user
+		on user.userid=contract.uid
+		where
+		contract.uid=#{userid} or contract.userid=#{userid} ORDER BY endtime
+		DESC
 	</select>
 
-	<!-- 根据关键字查询合同 <select id=""> SELECT conid,conname,company,starttime,endtime,picture,state,userid,uid 
-		FROM contract WHERE conname LIKE '%1%' </select> -->
+	<!-- 根据关键字查询合同 -->
+	<select id="findContractByWord" parameterType="String"
+		resultMap="Contract">
+		SELECT
+		<include refid="cons" />
+		FROM contract
+		inner join user
+		on user.userid=contract.uid
+		WHERE conname like '%${part}%'
+		ORDER BY endtime
+		DESC
+	</select>
 	<!-- 根据合同id更新合同 -->
 	<update id="updateCon" parameterType="String">
 		update contract
-		set state=1 
+		set state=1
 		where conid=#{conid}
 	</update>
 </mapper>

@@ -75,7 +75,7 @@ public class ConsController {
   /**
    * 
    * @Title:endCon
-   * @Description:TODO 结束合同，修噶合同执行状态
+   * @Description:TODO 结束合同，修改合同执行状态
    * @param conid
    * @return
    * @author winxinyuan
@@ -96,5 +96,35 @@ public class ConsController {
       return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
     }
     return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功");
+  }
+  
+  /**
+   * 
+   *@Title:getConsByWord  
+   * @Description:TODO 根据合同关键字查找合同信息
+   * @param word
+   * @return
+   * @author winxinyuan
+   */
+  @RequestMapping(value="/getcons",method = RequestMethod.GET)
+  public CommonResponse getConsByWord(@RequestParam String word){
+    List<Message> messages = null;
+    List datas = new ArrayList();
+    //非空判断
+    if(StringUtils.isEmpty(word)){
+      word="/";
+    }
+    try {
+      List<Contract> cons=consService.getConsByWord(word);
+      if (cons != null) {
+        messages = getMess(cons);
+      }
+      datas.add(cons);
+      datas.add(messages);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
+    }
+    return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功",datas);
   }
 }

@@ -19,17 +19,18 @@ function init() {
 }
 
 function showCons(data) {
-	var username = $("#username").val();
 	var datas = data.datas;
 	var cons = datas[0];
 	var messages = datas[1];
 	var tbody = $("tbody");
+	tbody.html("");
 	for (var i = 0; i <= cons.length; i++) {
 		var con = cons[i];
 		var conname = con.conname;
 		var conid = con.conid;
 		var endtime = con.endDate;
 		var state = con.state;
+		var username=con.username;
 		var message = messages[i];
 		var tr = $("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
 		tr.children('td').eq(0).html(conname);
@@ -68,6 +69,21 @@ function changeConState(con) {
 			if (data.code == '0000') {
 				obj.parent().parent().attr("bgcolor","#e0e0e0");
 				obj.parent().html("\\");
+			}
+		}
+	})
+}
+
+function getConByWord(){
+	var word=$("#keyword").val();
+	$.ajax({
+		type : 'GET',
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : 'cons/getcons?word=' + word,
+		success : function(data) {
+			if (data.code == '0000') {
+				showCons(data);
 			}
 		}
 	})

@@ -2,6 +2,7 @@ package com.yonyou.cons.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.yonyou.cons.entity.Contract;
@@ -66,7 +67,7 @@ public interface ConDao {
    * @return
    * @author winxinyuan
    */
-  public List<Contract> findContractByWord(String word);
+  public List<Contract> findContractByWord(@Param(value = "part") String part);
 
   /**
    * 

@@ -29,7 +29,19 @@ public class ConsService {
     return conDao.findContracsByUid(userid);
   }
 
+  /**
+   * 
+   * @Title:updateCon
+   * @Description:TODO 更新合同状态
+   * @param conid
+   * @return
+   * @author winxinyuan
+   */
   public int updateCon(String conid) {
     return conDao.updateCon(conid);
+  }
+  
+  public List<Contract> getConsByWord(String word){
+    return conDao.findContractByWord(word);
   }
 }

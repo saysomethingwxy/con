@@ -37,6 +37,11 @@ public class Contract {
    * 负责人
    */
   private String uid;
+  
+  /**
+   * 负责人姓名
+   */
+  private String username;
 
   
 
@@ -106,6 +111,15 @@ public class Contract {
 
   public final String getUid() {
     return uid;
+  }
+  
+
+  public final String getUsername() {
+    return username;
+  }
+
+  public final void setUsername(String username) {
+    this.username = username;
   }
 
   public final void setUid(String uid) {
