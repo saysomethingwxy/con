@@ -67,7 +67,7 @@ public interface ConDao {
    * @return
    * @author winxinyuan
    */
-  public List<Contract> findContractByWord(@Param(value = "part") String part);
+  public List<Contract> findContractByWord(@Param(value = "part") String part,@Param(value = "userid") String userid);
 
   /**
    * 

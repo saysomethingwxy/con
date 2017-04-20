@@ -76,11 +76,12 @@ function changeConState(con) {
 
 function getConByWord(){
 	var word=$("#keyword").val();
+	var userid = $("#userid").val();
 	$.ajax({
 		type : 'GET',
 		dataType : "json",
 		contentType : "application/json;charset=UTF-8",
-		url : 'cons/getcons?word=' + word,
+		url : 'cons/getcons?word=' + word+"&userid="+userid,
 		success : function(data) {
 			if (data.code == '0000') {
 				showCons(data);

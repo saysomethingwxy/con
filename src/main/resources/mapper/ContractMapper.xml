@@ -19,15 +19,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="invqty" property="invqty" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="cons">
-		contract.conid,
-		contract.conname,
-		contract.starttime,
-		contract.endtime,
-		contract.picture,
-		contract.state,
-		contract.userid,
-		contract.uid,
+		con.conid,
+		con.conname,
+		con.starttime,
+		con.endtime,
+		con.picture,
+		con.state,
+		con.userid,
+		con.uid,
 		username
+	</sql>
+	<sql id="con">
+		conid,
+		conname,
+		starttime,
+		endtime,
+		picture,
+		state,
+		userid,
+		uid
 	</sql>
 	<!-- 添加新合同 -->
 	<insert id="addContract" parameterType="com.yonyou.cons.entity.Contract"> 
@@ -41,24 +51,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT
 		<include refid="cons" />
 		FROM
-		contract
+		contract con
 		inner join user
-		on user.userid=contract.uid
+		on user.userid=con.uid
 		where
-		contract.uid=#{userid} or contract.userid=#{userid} ORDER BY endtime
+		con.uid=#{userid} or con.userid=#{userid} ORDER BY endtime
 		DESC
 	</select>
 
 	<!-- 根据关键字查询合同 -->
 	<select id="findContractByWord" parameterType="String"
 		resultMap="Contract">
-		SELECT
-		<include refid="cons" />
-		FROM contract
-		inner join user
-		on user.userid=contract.uid
-		WHERE conname
-		like '%${part}%'
+		SELECT <include refid="cons"/> 
+		FROM(SELECT <include refid="con"/> FROM contract WHERE uid=#{userid} OR userid=#{userid}) con 
+		INNER JOIN USER 
+		ON user.userid=con.uid  
+		WHERE con.conname LIKE '%${part}%'
 		ORDER BY endtime
 		DESC
 	</select>

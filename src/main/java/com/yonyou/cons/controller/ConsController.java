@@ -2,6 +2,7 @@ package com.yonyou.cons.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -115,9 +116,11 @@ public class ConsController {
    * @param word
    * @return
    * @author winxinyuan
+   * @throws UnsupportedEncodingException 
    */
   @RequestMapping(value = "/getcons", method = RequestMethod.GET)
-  public CommonResponse getConsByWord(@RequestParam String word) {
+  public CommonResponse getConsByWord(@RequestParam String word,@RequestParam String userid) throws UnsupportedEncodingException {
+   word=new String(word.getBytes("iso-8859-1"),"utf-8");
     List<Message> messages = null;
     List datas = new ArrayList();
     // 非空判断
@@ -125,7 +128,7 @@ public class ConsController {
       word = "/";
     }
     try {
-      List<Contract> cons = consService.getConsByWord(word);
+      List<Contract> cons = consService.getConsByWord(word,userid);
       if (cons != null) {
         messages = getMess(cons);
       }

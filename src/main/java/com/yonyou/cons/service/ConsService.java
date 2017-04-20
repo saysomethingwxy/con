@@ -49,8 +49,8 @@ public class ConsService {
    * @return
    * @author winxinyuan
    */
-  public List<Contract> getConsByWord(String word) {
-    return conDao.findContractByWord(word);
+  public List<Contract> getConsByWord(String word,String userid) {
+    return conDao.findContractByWord(word,userid);
   }
   
   public int addCon(Contract con){
