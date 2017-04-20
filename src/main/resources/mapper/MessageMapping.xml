@@ -26,6 +26,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		message
 		WHERE cid=#{cid}
 	</select>
-
+	<!--添加一条基本信息 -->
+	<insert id="addMessage" parameterType="com.yonyou.cons.entity.Message">
+		insert into
+		message
+		(<include refid="mess" />)
+		values(#{userid},#{uid},#{cid},#{date},#{message})
+	</insert>
 
 </mapper>

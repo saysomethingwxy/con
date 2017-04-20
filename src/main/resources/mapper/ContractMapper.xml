@@ -29,9 +29,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		contract.uid,
 		username
 	</sql>
-	<!-- 添加新合同 <insert> INSERT INTO contract (conid,conname,company,starttime,endtime,picture,state,userid,uid) 
-		VALUES(#{conid},#{conname},#{company},#{starttime},#{endtime},#{picture},#{state},#{userid},#{uid}) 
-		</insert> -->
+	<!-- 添加新合同 -->
+	<insert id="addContract" parameterType="com.yonyou.cons.entity.Contract"> 
+	INSERT INTO contract
+		(conid,conname,company,starttime,endtime,picture,state,userid,uid)
+		VALUES(#{conid},#{conname},#{company},#{startDate},#{endDate},#{picture},#{state},#{userid},#{uid})
+	</insert>
 
 	<!-- 根据相关id查找合同 -->
 	<select id="findContracsByUid" parameterType="String" resultMap="Contract">
@@ -54,7 +57,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM contract
 		inner join user
 		on user.userid=contract.uid
-		WHERE conname like '%${part}%'
+		WHERE conname
+		like '%${part}%'
 		ORDER BY endtime
 		DESC
 	</select>

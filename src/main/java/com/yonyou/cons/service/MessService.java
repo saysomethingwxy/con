@@ -15,8 +15,28 @@ public class MessService {
 
   @Autowired
   private MessageDao messDao;
-  
-  public Message getMessageByCid(String conid){
+
+  /**
+   * 
+   * @Title:getMessageByCid
+   * @Description:TODO 根据合同id查找消息
+   * @param conid
+   * @return
+   * @author winxinyuan
+   */
+  public Message getMessageByCid(String conid) {
     return messDao.findMessagesByCid(conid);
+  }
+
+  /**
+   * 
+   * @Title:addBaseMess
+   * @Description:TODO 添加一条合同基本信息
+   * @param msg
+   * @return
+   * @author winxinyuan
+   */
+  public int addBaseMess(Message msg) {
+    return messDao.addMessage(msg);
   }
 }

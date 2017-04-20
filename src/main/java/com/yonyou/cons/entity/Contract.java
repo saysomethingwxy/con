@@ -37,13 +37,13 @@ public class Contract {
    * 负责人
    */
   private String uid;
-  
+
   /**
    * 负责人姓名
    */
   private String username;
 
-  
+
 
   public final String getConid() {
     return conid;
@@ -61,12 +61,13 @@ public class Contract {
     this.conname = conName;
   }
 
-  public String getCompany() {
+
+  public final String getCompany() {
     return company;
   }
 
-  public void setCompany(String company) {
-    company = company;
+  public final void setCompany(String company) {
+    this.company = company;
   }
 
   public String getStartDate() {
@@ -112,7 +113,7 @@ public class Contract {
   public final String getUid() {
     return uid;
   }
-  
+
 
   public final String getUsername() {
     return username;
@@ -126,7 +127,6 @@ public class Contract {
     this.uid = uid;
   }
 
- 
 
 
 }

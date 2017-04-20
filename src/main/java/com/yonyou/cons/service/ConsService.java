@@ -40,8 +40,20 @@ public class ConsService {
   public int updateCon(String conid) {
     return conDao.updateCon(conid);
   }
-  
-  public List<Contract> getConsByWord(String word){
+
+  /**
+   * 
+   * @Title:getConsByWord
+   * @Description:TODO 根据合同姓名关键字查询合同信息
+   * @param word
+   * @return
+   * @author winxinyuan
+   */
+  public List<Contract> getConsByWord(String word) {
     return conDao.findContractByWord(word);
+  }
+  
+  public int addCon(Contract con){
+    return conDao.addContract(con);
   }
 }

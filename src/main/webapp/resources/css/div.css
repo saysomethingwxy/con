@@ -151,11 +151,10 @@
 
 .cons2 {
 	position: absolute;
-	top: 55%;
+	top: 150px;
 	left: 60%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0);
 	width: 900px;
-	margin-top: 30px;
 }
 
 .cons3 {
@@ -227,4 +226,36 @@
 .reg2 {
 	position: absolute;
 	left: 50%;
+}
+.newcon {
+	position: absolute;
+	top: 10%;
+	left:47%;
+}
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
 }

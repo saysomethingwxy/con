@@ -9,8 +9,7 @@ import com.yonyou.cons.entity.Message;
 
 @Repository
 public interface MessageDao {
-  // @Autowired
-  // private Message message;
+  
   /**
    * 
    * @Title:addMessage
