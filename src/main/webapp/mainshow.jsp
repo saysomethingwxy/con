@@ -1,7 +1,7 @@
 main<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ include file="head.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="head.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +10,9 @@ main<%@ page language="java" contentType="text/html; charset=UTF-8"
 </head>
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!-- Bootstrap Core CSS -->
@@ -29,16 +31,16 @@ main<%@ page language="java" contentType="text/html; charset=UTF-8"
 
 <body name="main" background="img/mainbg.jpg">
 
-<div class="shead">
-			<input id="keyword" type="text" name="search" onfocus="changinp(this)"
-				onblur="changeinput(this)" class="form-control"
-				placeholder="搜索合同关键字" style="width: 300px;">
-		</div>
-		<div class="btnhead">
-			<button class="btn btn-success" onclick="getConByWord()">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
-		</div>
+	<div class="shead">
+		<input id="keyword" type="text" name="search" onfocus="changinp(this)"
+			onblur="changeinput(this)" class="form-control" placeholder="搜索合同关键字"
+			style="width: 300px;">
+	</div>
+	<div class="btnhead">
+		<button class="btn btn-success" onclick="getConByWord()">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
+	</div>
 	<div class="cons1">
 		<table class="table">
 			<thead>

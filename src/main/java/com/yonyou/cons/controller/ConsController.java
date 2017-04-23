@@ -211,8 +211,9 @@ public class ConsController {
               }
               filename = UUID.randomUUID().toString().replace("-", "");
               // 定义上传路径
-              String path =
-                  request.getServletContext().getRealPath("/cons") + "\\" + filename + pfix;
+//              String path =
+//                  request.getServletContext().getRealPath("/cons") + "\\" + filename + pfix;
+              String path="C:\\Users\\Administrator\\git\\yonyoucon\\src\\main\\webapp\\cons\\" + filename + pfix;
               names.append("#").append(filename).append(pfix);
               // 上传文件
               file.transferTo(new File(path));

@@ -22,7 +22,7 @@ function showCons(data) {
 	var datas = data.datas;
 	var cons = datas[0];
 	var messages = datas[1];
-	var tbody = $("tbody");
+	var tbody = $("#tbody");
 	tbody.html("");
 	for (var i = 0; i <= cons.length; i++) {
 		var con = cons[i];
@@ -91,7 +91,6 @@ function getConByWord(){
 }
 
 function imgShow(obj){
-	alert(111);
 	var conid=$(obj).attr("value");
 	$.ajax({
 		type : 'GET',
@@ -100,8 +99,24 @@ function imgShow(obj){
 		url : 'cons/getimg?conid=' + conid,
 		success : function(data) {
 			if (data.code == '0000') {
-				alert(data.datas[1]);
+				var imgs=data.datas;
+				var tr=$("<tr><td id='page'></td></tr><tr><td id='img'></td></tr>");
+				var tb=$("#tbody");
+				$("thead").remove();
+				tb.html("");
+				tb.append(tr);
+				$("#img").append("<img src='cons/"+imgs[1]+"'/>");
+				for(var i=1;i<imgs.length;i++){
+					var a=$("<a value='"+imgs[i]+"' onclick='show(this)'>"+i+"  </a>");
+					$("#page").append(a);
+				}
+				var a=$("<a href='mainshow.jsp' onclick='show()'>    返回  </a>");
+				$("#page").append(a);
 			}
 		}
 	})
+}
+function show(obj){
+	var img=$(obj).attr("value");
+	$("#img").html("<img src='cons/"+img+"'/>");
 }
