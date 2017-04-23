@@ -38,7 +38,7 @@ public interface ConDao {
    * @return
    * @author winxinyuan
    */
-  public Contract findContractById(String id);
+  public Contract findContractByCid(String cid);
 
   /**
    * 

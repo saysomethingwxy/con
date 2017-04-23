@@ -76,4 +76,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set state=1
 		where conid=#{conid}
 	</update>
+	<!-- 根据合同id查找合同 -->
+	<select id="findContractByCid" parameterType="String" resultMap="Contract">
+		SELECT
+		<include refid="con" />
+		FROM
+		contract
+		where conid=#{cid}
+	</select>
 </mapper>

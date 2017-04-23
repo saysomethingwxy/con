@@ -36,7 +36,7 @@ function showCons(data) {
 		tr.children('td').eq(0).html(conname);
 		tr.children('td').eq(1).html(endtime);
 		tr.children('td').eq(2).html(username);
-		tr.children('td').eq(3).html("查看");
+		tr.children('td').eq(3).html("<a value='"+conid+"' onclick='imgShow(this)'>查看</a>");
 		//添加新合同同时插入提醒信息
 		tr.children('td').eq(4).html(message.message);
 		if (state == 0) {
@@ -85,6 +85,22 @@ function getConByWord(){
 		success : function(data) {
 			if (data.code == '0000') {
 				showCons(data);
+			}
+		}
+	})
+}
+
+function imgShow(obj){
+	alert(111);
+	var conid=$(obj).attr("value");
+	$.ajax({
+		type : 'GET',
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : 'cons/getimg?conid=' + conid,
+		success : function(data) {
+			if (data.code == '0000') {
+				alert(data.datas[1]);
 			}
 		}
 	})

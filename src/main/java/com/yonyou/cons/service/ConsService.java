@@ -1,11 +1,13 @@
 package com.yonyou.cons.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.yonyou.cons.dao.ConDao;
 import com.yonyou.cons.entity.Contract;
@@ -49,11 +51,47 @@ public class ConsService {
    * @return
    * @author winxinyuan
    */
-  public List<Contract> getConsByWord(String word,String userid) {
-    return conDao.findContractByWord(word,userid);
+  public List<Contract> getConsByWord(String word, String userid) {
+    return conDao.findContractByWord(word, userid);
   }
-  
-  public int addCon(Contract con){
+
+  /**
+   * 
+   * @Title:addCon
+   * @Description:TODO 添加新合同
+   * @param con
+   * @return
+   * @author winxinyuan
+   */
+  public int addCon(Contract con) {
     return conDao.addContract(con);
+  }
+
+  /**
+   * 
+   * @Title:getConByCid
+   * @Description:TODO 根据合同id查找合同
+   * @param conid
+   * @return
+   * @author winxinyuan
+   */
+  public Contract getConByCid(String conid) {
+    return conDao.findContractByCid(conid);
+  }
+
+  /**
+   * 
+   * @Title:getImgs
+   * @Description:TODO 根据img分割出图片信息
+   * @param img
+   * @return
+   * @author winxinyuan
+   */
+  public List<String> getImgs(String img) {
+    String[] image = null;
+    if (!StringUtils.isEmpty(img)) {
+      image = img.split("#");
+    }
+    return Arrays.asList(image);
   }
 }
