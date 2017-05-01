@@ -21,7 +21,18 @@ public class Message {
    * 时间
    */
   private String date;
+  /**
+   * 类型用于区别邮件
+   */
+  private String type;
  
+  
+  public final String getType() {
+    return type;
+  }
+  public final void setType(String type) {
+    this.type = type;
+  }
   public final String getCid() {
     return cid;
   }

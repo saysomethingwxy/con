@@ -1,5 +1,6 @@
 package com.yonyou.cons.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.util.StringUtils;
 
 import com.yonyou.cons.dao.ConDao;
 import com.yonyou.cons.entity.Contract;
+import com.yonyou.cons.entity.Message;
 
 @Service
 public class ConsService {
@@ -93,5 +95,22 @@ public class ConsService {
       image = img.split("#");
     }
     return Arrays.asList(image);
+  }
+
+  /**
+   * 
+   *@Title:getConsByMsg  
+   * @Description:TODO 根据提醒信息获取合同
+   * @param messages
+   * @return
+   * @author winxinyuan
+   */
+  public List<Contract> getConsByMsg(List<Message> messages) {
+    List<Contract> con= new ArrayList<Contract>();
+    for(Message m:messages){
+      Contract c=conDao.findContractByCid(m.getCid());
+      con.add(c);
+    }
+    return con;
   }
 }

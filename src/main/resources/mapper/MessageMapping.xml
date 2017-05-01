@@ -30,8 +30,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addMessage" parameterType="com.yonyou.cons.entity.Message">
 		insert into
 		message
-		(<include refid="mess" />)
+		(
+		<include refid="mess" />
+		)
 		values(#{userid},#{uid},#{cid},#{date},#{message})
 	</insert>
-
+	<!-- 更新新提醒消息 -->
+	<update id="updateMessage" parameterType="com.yonyou.cons.entity.Message">
+		UPDATE message SET message=#{message},DATE=#{date} WHERE cid=#{cid}
+	</update>
+	<!-- 根据用户信息查找信息 -->
+	<select id="findMessagesByUid" parameterType="String" resultMap="Message">
+		SELECT
+		<include refid="mess" />
+		FROM
+		message
+		WHERE uid=#{userid} or userid=#{userid} ORDER BY DATE DESC
+	</select>
+	<!-- 系统定期检测提醒消息 -->
+	<update id="updateMessageByDate" parameterType="com.yonyou.cons.entity.Message">
+		UPDATE message SET message=#{message},DATE=#{date} WHERE cid=#{cid}
+	</update>
 </mapper>

@@ -25,6 +25,7 @@
 <body>
 <c:if test="${user!=null}">
 	<input hidden="true" value="${user.userid }" id="userid">
+	<input hidden="true" value="${user.role }" id="role">
 	</c:if>
 	<div class="head1" style="background-color: white">
 		<div class="head2">
@@ -48,7 +49,7 @@
 		</div>
 		<div class="head7">
 			<img width="50px" src="img/me.jpg" class="img-circle"><a href="login.jsp" class="a" style="text-decoration: none;"
-				target="main">退出登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="change.jsp" target="main" class="a" style="text-decoration: none;">修改设置</a>
+				target="main">退出登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="change.jsp" target="main" class="a" style="text-decoration: none;">查看设置</a>
 		</div>
 	</div>
 </body>

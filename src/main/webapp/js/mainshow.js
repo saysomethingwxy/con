@@ -120,3 +120,14 @@ function show(obj){
 	var img=$(obj).attr("value");
 	$("#img").html("<img src='cons/"+img+"'/>");
 }
+
+function on(){$.ajax({
+	type : 'GET',
+	dataType : "json",
+	contentType : "application/json;charset=UTF-8",
+	url : 'mess/mail',
+	success : function(data) {
+		alert("发送");
+	}
+})
+}

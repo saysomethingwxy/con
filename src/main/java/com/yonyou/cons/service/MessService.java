@@ -39,4 +39,28 @@ public class MessService {
   public int addBaseMess(Message msg) {
     return messDao.addMessage(msg);
   }
+  
+  /**
+   * 
+   *@Title:updateMessage  
+   * @Description:TODO 更新消息
+   * @param msg
+   * @return
+   * @author winxinyuan
+   */
+  public int updateMessage(Message msg){
+    return messDao.updateMessage(msg);
+  }
+  
+  /**
+   * 
+   *@Title:getMsgByUserid  
+   * @Description:TODO 根据用户信息获取信息
+   * @param userid
+   * @return
+   * @author winxinyuan
+   */
+  public List<Message> getMsgByUserid(String userid){
+    return messDao.findMessagesByUid(userid);
+  }
 }

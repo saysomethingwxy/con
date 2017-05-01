@@ -9,7 +9,7 @@ import com.yonyou.cons.entity.Message;
 
 @Repository
 public interface MessageDao {
-  
+
   /**
    * 
    * @Title:addMessage
@@ -33,11 +33,21 @@ public interface MessageDao {
   /**
    * 
    * @Title:findMessagesByUid
-   * @Description:TODO
+   * @Description:TODO 根据用户信息获取信息
    * @param Uid
    * @return
    * @author winxinyuan
    */
-  public List<Message> findMessagesByUid(String Uid);
+  public List<Message> findMessagesByUid(String userid);
+
+  /**
+   * 
+   * @Title:updateMessage
+   * @Description:TODO 更新新提醒消息
+   * @param msg
+   * @return
+   * @author winxinyuan
+   */
+  public int updateMessage(Message msg);
 
 }

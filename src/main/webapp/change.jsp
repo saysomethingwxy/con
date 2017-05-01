@@ -59,7 +59,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label"><font color="red"></font>姓名:</label>
 				<div class="col-sm-8">
-					<input class="form-control" id="name" type="text" value="${user.username }"><font
+					<input class="form-control" id="name" type="text" value="${user.username }" disabled><font
 						color="red" id="name1"></font>
 				</div>
 			</div>
@@ -80,14 +80,9 @@
 			</div>
 			<br>
 			<div class="form-group">
-				<label class="col-sm-2 control-label"><font color="red"></font>头像:</label>
 				<div class="col-sm-8">
-					<input type="file"><br> <br> <br>
 					<p align="center">
-						<input type="button" class="btn btn-info" onclick="checkChange()"
-							value="修改">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="mainshow.jsp" class="btn btn-default">取消</a>
+						<a href="mainshow.jsp"><input type="button" class="btn btn-info" value="返回"></a>
 					<p>
 				</div>
 			</div>
