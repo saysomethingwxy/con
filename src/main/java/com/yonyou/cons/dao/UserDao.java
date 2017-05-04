@@ -65,4 +65,14 @@ public interface UserDao {
    */
   public User findUserById(User user);
 
+  /**
+   * 
+   *@Title:getUserByMail  
+   * @Description:TODO 根据邮箱获取用户
+   * @param mail
+   * @return
+   * @author winxinyuan
+   */
+  public User getUserByMail(String mail);
+
 }

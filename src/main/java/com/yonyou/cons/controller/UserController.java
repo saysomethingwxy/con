@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yonyou.cons.Enum.CodeEnum;
 import com.yonyou.cons.common.CommonResponse;
 import com.yonyou.cons.entity.User;
+import com.yonyou.cons.service.EmailService;
 import com.yonyou.cons.service.UserService;
 
 @RestController
@@ -18,26 +20,44 @@ import com.yonyou.cons.service.UserService;
 public class UserController {
   @Autowired
   private UserService userService;
+  
+  @Autowired
+  private EmailService mailService;
 
   @RequestMapping(value = "/regester")
-  private CommonResponse regester(@RequestBody User user) {
+  private CommonResponse regester(@RequestBody User user,HttpServletRequest request) {
     try {
       // 非空校验
       if (null == user) {
         return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "用户信息不能为空");
       }
       if (StringUtils.isEmpty(user.getUsername()) || StringUtils.isEmpty(user.getPassword())
-          || StringUtils.isEmpty(user.getRole()) || StringUtils.isEmpty(user.getUserid())) {
+          || StringUtils.isEmpty(user.getRole()) || StringUtils.isEmpty(user.getUserid())|| StringUtils.isEmpty(user.getCode())) {
         return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "用户信息不能为空");
       }
+      //检测邮箱是否存在
+      String mail=user.getEmail();
+      User mailuser=userService.getUserByMail(mail);
+          if(mailuser!=null){
+            return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "邮箱已被注册");
+          }
+      //检测员工编号是否存在
+      User iduser=userService.getUserById(user);
+          if(iduser!=null){
+            return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "员工编号已存在");
+          }
+      //判断验证码是否一致
+     Object code=request.getSession().getAttribute(mail);
+     if(!user.getCode().equals(code.toString())){
+       return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "验证码不正确");
+     }
       // 添加新用户
       user = userService.addUser(user);
     } catch (Exception e) {
+      e.printStackTrace();
       return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
     }
-
     return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功");
-
   }
 
   @RequestMapping(value = "login")
@@ -83,4 +103,30 @@ public class UserController {
       return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
     }
   }
+  
+  /**
+   * 
+   *@Title:regester  
+   * @Description:TODO 获取验证码
+   * @param user
+   * @param request
+   * @return
+   * @author winxinyuan
+   */
+  @RequestMapping(value = "/getcode")
+  private CommonResponse regester(@RequestParam String email,HttpServletRequest request) {
+    try {
+      // 非空校验
+      if (StringUtils.isEmpty(email)) {
+        return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "用户邮箱不能为空");
+      }
+      mailService.eamil(email, "register");
+      request.getSession().setAttribute(email, mailService.getCode());
+    }catch(Exception e) {
+      e.printStackTrace();
+      return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
+    }
+    return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "验证码已发送");
+  }
+
 }

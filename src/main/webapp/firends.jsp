@@ -29,7 +29,7 @@
 				<th colspan="3">好友请求</th>
 			</tr>
 			<tr align="center">
-				<td><img width="80px" src="img/me.jpg" class="img-circle"></td>
+				<td><img width="80px" src="img/tx2.jpg" class="img-circle"></td>
 				<td>姓名xxx</td>
 				<td><a class="btn btn-success">同意</a></td>
 			</tr>
@@ -46,7 +46,7 @@
 					</button></td>
 			</tr>
 			<tr align="center">
-				<td><img width="80px" src="img/me.jpg" class="img-circle"></td>
+				<td><img width="80px" src="img/tx2.jpg" class="img-circle"></td>
 				<td>姓名xxx</td>
 				<td>部门xxx</td>
 				<td><a class="btn btn-info">添加</a></td>
@@ -59,7 +59,7 @@
 				<th colspan="2">我的好友</th>
 			</tr>
 			<tr align="center">
-				<td><img width="80px" src="img/me.jpg" class="img-circle"></td>
+				<td><img width="80px" src="img/tx2.jpg" class="img-circle"></td>
 				<td>姓名xxx</td>
 			</tr>
 		</table>

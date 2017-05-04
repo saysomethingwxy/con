@@ -16,23 +16,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="date" property="date" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="getuser">
-	userid,
-	username,
-	email,
-	sex,
-	role,
-	date,
-	password,
-	picture,
-	company
+		userid,
+		username,
+		email,
+		sex,
+		role,
+		date,
+		password,
+		picture,
+		company
 	</sql>
 
-	<!-- 增加新用户-->
+	<!-- 增加新用户 -->
 	<insert id="addUser" parameterType="com.yonyou.cons.entity.User">
 		insert into user
 		(userid,role,username,email,sex,password,company,picture,date)
 		values(#{userid},#{role},#{username},#{email},#{sex},#{password},#{company},#{picture},#{date})
-	</insert> 
+	</insert>
 
 	<!-- 更新用户信息 -->
 	<update id="updateUserById" parameterType="com.yonyou.cons.entity.User">
@@ -44,24 +44,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<!-- 根据用户id查找好友用户 -->
-	<select id="findUserById" parameterType="com.yonyou.cons.entity.User" resultMap="User">
-		select <include refid="getuser"/>  from user
+	<select id="findUserById" parameterType="com.yonyou.cons.entity.User"
+		resultMap="User">
+		select
+		<include refid="getuser" />
+		from user
 		where userid=#{userid}
 	</select>
 
-	<!-- 根据员工号查找用户
-	<select id="">
-		select id,role,username,email,sex,password,company,picture,date
+	<!-- 根据员工号查找用户 <select id=""> select id,role,username,email,sex,password,company,picture,date 
+		from user <where> <if test="username !=null and username !=''"> and username=#{username}; 
+		</if> <if test="userid != null and userid != ''"> and userid=#{userid}; </if> 
+		</where> </select> -->
+		
+	<!-- 根据员工号查找用户 -->
+	<select id="getUserByMail" parameterType="String" resultMap="User">
+	select
+		<include refid="getuser" />
 		from user
-		<where>
-		<if test="username !=null and username !=''">
-		and username=#{username};
-		</if>
-		<if test="userid != null and userid != ''">
-		and userid=#{userid};
-		</if>
-		</where>
-	</select> -->
-
-
+		where email=#{mail}
+	</select>
+	
+	
 </mapper>

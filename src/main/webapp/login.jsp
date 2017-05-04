@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<div class="log4">
-				<a href="register.html" style="text-decoration: none;">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+				<a href="register.jsp" style="text-decoration: none;">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
 					href="forget1.html" style="text-decoration: none;">忘记密码？</a>
 			</div>
 			<div class="log5">

@@ -42,6 +42,7 @@ public class UserService {
       }
     } catch (Exception e) {
       e.printStackTrace();
+      logger.debug("添加新用户失败");
     }
     logger.debug("添加新用户成功");
     return user;
@@ -93,6 +94,18 @@ public class UserService {
    */
   public int changeUserinfo(User user) {
     return userDao.updateUserById(user);
+  }
+
+  /**
+   * 
+   *@Title:getUserByMail  
+   * @Description:TODO 根据邮箱回去用户
+   * @param mail
+   * @return
+   * @author winxinyuan
+   */
+  public User getUserByMail(String mail) {
+    return userDao.getUserByMail(mail);
   }
 
 

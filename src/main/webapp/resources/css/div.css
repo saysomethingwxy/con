@@ -74,7 +74,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 48%;
+	left: 50%;
 }
 
 .head5 {
@@ -83,16 +83,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 58%;
-}
-
-.head6 {
-	position: absolute;
-	top: 25%;
-	transform: translate(-50%, -50%);
-	height: 20px;
-	float: left;
-	left: 68%;
+	left: 65%;
 }
 
 .head7 {
@@ -101,7 +92,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 85%;
+	left: 80%;
 }
 
 .head8 {
@@ -110,7 +101,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 65%;
+	left: 85%;
 }
 
 .head9 {
@@ -119,7 +110,7 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 80%;
+	left: 85%;
 }
 
 .shead {

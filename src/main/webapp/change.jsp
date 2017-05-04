@@ -36,7 +36,7 @@
 			<table class="table table-striped" style="width: 800px;">
 				<tr align="center">
 					<td><h3>
-							<strong>修改个人设置</strong>
+							<strong>查看个人设置</strong>
 						</h3></td>
 				</tr>
 			</table>

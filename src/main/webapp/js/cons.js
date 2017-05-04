@@ -87,11 +87,11 @@ function register() {
 	}
 	// var yzm = $("#yzm");
 	// check(yzm);
+	var code = $("#code").val();
 	if (flag == 0) {
 		return false;
 	}
 	var sex = $("input[name='sex'][checked]").val();
-	alert(sex);
 	var role = $("input[name='role'][checked]").val();
 	var datas = {
 		"userid" : id,
@@ -100,6 +100,7 @@ function register() {
 		"password" : password,
 		"email" : mail,
 		"role" : role,
+		"code":code
 	}
 	if (flag == 1) {
 		$.ajax({
@@ -114,10 +115,10 @@ function register() {
 				}
 				if (data.code == "0000") {
 					alert(data.msg);
-					window.location.href = "/yonyoucon/login.html";
+					window.location.href = "/yonyoucon/login.jsp";
 				}
 				if (data.code == "9999") {
-					// $("#mail1").text(data.msg);
+					$("#mail1").text(data.msg);
 				}
 			},
 			error : function() {
@@ -250,7 +251,6 @@ function checkChange() {
 		"username" : name
 	}
 	if (flag == 1) {
-		alert(333333);
 		$.ajax({
 			type : 'POST',
 			dataType : "json",
@@ -274,4 +274,25 @@ function checkChange() {
 			},
 		});
 	}
+}
+
+function getCode(){
+	var mail = $("#mail").val();
+	$.ajax({
+		type : 'GET',
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : 'user/getcode?email='+mail,
+		success : function(data) {
+			if (data.code == "0000") {
+				alert(data.msg);
+			}
+			if (data.code == "9999") {
+				alert(data.msg);
+			}
+		},
+		error : function() {
+			console.log("请求失败");
+		},
+	});
 }

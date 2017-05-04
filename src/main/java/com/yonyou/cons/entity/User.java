@@ -40,6 +40,20 @@ public class User {
    * 头像
    */
   private String picture;
+  /**
+   * 验证码
+   */
+  private String code;
+  
+  
+
+  public final String getCode() {
+    return code;
+  }
+
+  public final void setCode(String code) {
+    this.code = code;
+  }
 
   public String getSex() {
     return sex;

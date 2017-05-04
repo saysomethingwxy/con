@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="application/x-javascript">
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+</script>
+<!-- Bootstrap Core CSS -->
+<link href="resources/css/bootstrap.min.css" rel='stylesheet'
+	type='text/css' />
+<!-- Graph CSS -->
+<link href="resources/css/lines.css" rel='stylesheet' type='text/css' />
+<link href="resources/css/font-awesome.css" rel="stylesheet">
+<link href="resources/css/div.css" rel="stylesheet">
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/cons.js"></script>
+<link href="resources/custom.css" rel="stylesheet">
+<body background="img/regiester1.jpg">
+	<div class="reg1">
+		<form class="form-horizontal" id="form">
+			<table class="table table-striped" style="width: 800px;">
+				<tr align="center">
+					<td><h3>
+							<strong><font color="red">注册新用户</font></strong>
+						</h3></td>
+				</tr>
+				<tr align="center">
+					<td><font color="red"><span
+							class="glyphicon glyphicon-star-empty"></span></font>为必填内容</td>
+				</tr>
+			</table>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>角色:</label>
+				<div class="col-sm-8">
+					<input name="role" checked="checked" type="radio" value="1">运营&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+						name="role" type="radio" value="0">研发
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>邮箱:</label>
+				<div class="col-sm-8">
+					<input class="form-control" id="mail" type="text"><font
+						color="red" id="mail1"></font>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>验证码:</label>
+				<div class="col-sm-8">
+					<input id="code" class="form-control" type="text" onblur="check(this)"
+						onfocus="cleancheck(this)"><font id="yzm" color="red"></font><a class="btn btn-success" onclick="getCode()">获取验证码</a>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>姓名:</label>
+				<div class="col-sm-8">
+					<input class="form-control" id="name" type="text"><font
+						color="red" id="name1"></font>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>密码:</label>
+				<div class="col-sm-8">
+					<input class="form-control" id="password" type="password"><span><font
+						id="psd" color="#ADADAD">不少于6位字符</font></span>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>重复密码:</label>
+				<div class="col-sm-8">
+					<input class="form-control" id="password1" type="password"><font
+						color="red" id="psd1"></font>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>性别:</label>
+				<div class="col-sm-8">
+					<input name="sex" type="radio" checked="checked" value="男">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+						name="sex" type="radio" value="女">女
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"><font color="red"><span
+						class="glyphicon glyphicon-star-empty"></span></font>员工号:</label>
+				<div class="col-sm-8">
+					<input class="form-control" id="id" type="text"><font
+						color="red" id="id1"></font>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-8">
+					<p align="center">
+						<input onclick="register()" class="btn btn-info" type="button"
+							value="注册" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input onclick="clean()" class="btn btn-success" type="reset"
+							value="重置" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="login.jsp" class="btn btn-default">取消</a>
+					<p>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
