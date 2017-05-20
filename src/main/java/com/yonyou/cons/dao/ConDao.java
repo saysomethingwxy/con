@@ -1,10 +1,12 @@
 package com.yonyou.cons.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.yonyou.cons.entity.ConQty;
 import com.yonyou.cons.entity.Contract;
 import com.yonyou.cons.entity.User;
 
@@ -78,5 +80,34 @@ public interface ConDao {
    * @author winxinyuan
    */
   public int updateCon(String conid);
+  
+  /**
+   * 
+   *@Title:findCons  
+   * @Description:TODO 按年份查询已完成合同
+   * @param year
+   * @return
+   * @author winxinyuan
+   */
+  public List<ConQty>  findCons(@Param(value = "year") String year);
+  
+  /**
+   * 
+   *@Title:findConsNo  
+   * @Description:TODO 按年份查询未完成合同
+   * @param year
+   * @return
+   * @author winxinyuan
+   */
+  public List<ConQty> findConsNo(@Param(value = "year") String year);
+  
+  /**
+   * 
+   *@Title:findConsNum  
+   * @Description:TODO 查询总合同量
+   * @return
+   * @author winxinyuan
+   */
+  public String findConsNum();
 
 }

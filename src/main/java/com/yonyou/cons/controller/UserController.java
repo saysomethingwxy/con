@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.yonyou.cons.Enum.CodeEnum;
 import com.yonyou.cons.common.CommonResponse;
 import com.yonyou.cons.entity.User;
-import com.yonyou.cons.service.EmailService;
+import com.yonyou.cons.service.EmailTask;
 import com.yonyou.cons.service.UserService;
 
 @RestController
@@ -22,7 +22,7 @@ public class UserController {
   private UserService userService;
   
   @Autowired
-  private EmailService mailService;
+  private EmailTask mailService;
 
   @RequestMapping(value = "/regester")
   private CommonResponse regester(@RequestBody User user,HttpServletRequest request) {

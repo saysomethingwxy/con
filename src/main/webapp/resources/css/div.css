@@ -83,16 +83,23 @@
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 65%;
+	left: 63%;
 }
-
+.head6 {
+	position: absolute;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	height: 20px;
+	float: left;
+	left: 75%;
+}
 .head7 {
 	position: absolute;
 	top: 35%;
 	transform: translate(-50%, -50%);
 	height: 20px;
 	float: left;
-	left: 80%;
+	left: 83%;
 }
 
 .head8 {
@@ -249,4 +256,12 @@
     border-color: #78C3F3;
     color: #004974;
     text-decoration: none;
+}
+
+.rep {
+	position: absolute;
+	top: 150px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 900px;
 }

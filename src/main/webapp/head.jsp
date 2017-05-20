@@ -43,6 +43,10 @@
 			<a href="message.jsp" target="main"><img src="img/message1.png"
 				width="52%"></a>
 		</div>
+		<div class="head6">
+			<a href="report.jsp" target="main"><img src="img/rep.png"
+				width="36%"></a>
+		</div>
 		<div class="head7">
 			<img width="50px" src="img/tx2.jpg" class="img-circle"><a href="login.jsp" class="a" style="text-decoration: none;"
 				target="main">退出登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="change.jsp" target="main" class="a" style="text-decoration: none;">查看设置</a>

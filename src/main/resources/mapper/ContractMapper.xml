@@ -18,6 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		<result column="invqty" property="invqty" jdbcType="INTEGER" />
 	</resultMap>
+	<resultMap type="com.yonyou.cons.entity.ConQty"
+		id="ConQtyMap">
+		<result column="month" property="month" jdbcType="VARCHAR" />
+		<result column="count" property="qty" jdbcType="INTEGER" />
+	</resultMap>
+	
 	<sql id="cons">
 		con.conid,
 		con.conname,
@@ -40,8 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		uid
 	</sql>
 	<!-- 添加新合同 -->
-	<insert id="addContract" parameterType="com.yonyou.cons.entity.Contract"> 
-	INSERT INTO contract
+	<insert id="addContract" parameterType="com.yonyou.cons.entity.Contract">
+		INSERT INTO contract
 		(conid,conname,company,starttime,endtime,picture,state,userid,uid)
 		VALUES(#{conid},#{conname},#{company},#{startDate},#{endDate},#{picture},#{state},#{userid},#{uid})
 	</insert>
@@ -62,12 +68,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 根据关键字查询合同 -->
 	<select id="findContractByWord" parameterType="String"
 		resultMap="Contract">
-		SELECT <include refid="cons"/> 
-		FROM(SELECT <include refid="con"/> FROM contract WHERE uid=#{userid} OR userid=#{userid}) con 
-		INNER JOIN USER 
-		ON user.userid=con.uid  
+		SELECT
+		<include refid="cons" />
+		FROM(SELECT
+		<include refid="con" />
+		FROM contract WHERE uid=#{userid} OR userid=#{userid}) con
+		INNER JOIN
+		USER
+		ON user.userid=con.uid
 		WHERE con.conname LIKE '%${part}%'
-		ORDER BY endtime
+		ORDER BY
+		endtime
 		DESC
 	</select>
 	<!-- 根据合同id更新合同 -->
@@ -83,5 +94,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 		contract
 		where conid=#{cid}
+	</select>
+	<!-- 根据状态查询合同 -->
+	<select id="findContractByState" parameterType="String"
+		resultMap="Contract">
+		SELECT
+		<include refid="cons" />
+		FROM
+		contract con
+		inner join user
+		on con.uid=user.userid
+		where con.state
+		like "%${state}%"
+	</select>
+	<!-- 合同报表查询已完成 -->
+	<select id="findCons" parameterType="String" resultMap="ConQtyMap">
+		SELECT
+		MONTH(endtime) MONTH,COUNT(1) COUNT FROM contract WHERE endtime LIKE
+		'%${year}%' AND state=1 GROUP BY MONTH(endtime)
+	</select>
+	<!-- 合同报表查询未完成 -->
+	<select id="findConsNo" parameterType="String" resultMap="ConQtyMap">
+		SELECT
+		MONTH(endtime) MONTH,COUNT(1) COUNT FROM contract WHERE endtime LIKE
+		'%${year}%' AND state=0 GROUP BY MONTH(endtime)
+	</select>
+	<!-- 查询合同总数量 -->
+	<select id="findConsNum" resultType="String">
+		SELECT COUNT(1) FROM contract
 	</select>
 </mapper>

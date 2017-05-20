@@ -23,6 +23,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.yonyou.cons.Enum.CodeEnum;
 import com.yonyou.cons.common.CommonResponse;
+import com.yonyou.cons.entity.ConQty;
 import com.yonyou.cons.entity.Contract;
 import com.yonyou.cons.entity.Message;
 import com.yonyou.cons.service.ConsService;
@@ -272,6 +273,35 @@ public class ConsController {
       return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
     }
     return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功",imgs);
+  }
+  
+  /**
+   * 
+   *@Title:getReport  
+   * @Description:TODO 获取报表信息
+   * @param year
+   * @return 返回顺序为：总数  完成数量  未完成数量
+   * @author winxinyuan
+   */
+  @RequestMapping(value="/getrep", method = RequestMethod.GET)
+  public CommonResponse getReport(@RequestParam String year){
+    List cons=new ArrayList();
+    //非空判断
+    if(StringUtils.isEmpty(year)){
+      return new CommonResponse(CodeEnum.NULL_CODE.getCode(), "参数不能为空");
+    }
+    try {
+      String count=consService.getConNum();
+      List<ConQty> conqty=consService.getConsbyYear(year);
+      List<ConQty> conqtys=consService.getNoCons(year);
+      cons.add(count);
+      cons.add(conqty);
+      cons.add(conqtys);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new CommonResponse(CodeEnum.FAIL_CODE.getCode(), "操作失败");
+    }
+    return new CommonResponse(CodeEnum.SUCCESS_CODE.getCode(), "操作成功",cons);
   }
 
 }

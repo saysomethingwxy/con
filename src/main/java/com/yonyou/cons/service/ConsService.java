@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.yonyou.cons.dao.ConDao;
+import com.yonyou.cons.entity.ConQty;
 import com.yonyou.cons.entity.Contract;
 import com.yonyou.cons.entity.Message;
 
@@ -113,4 +114,74 @@ public class ConsService {
     }
     return con;
   }
+  
+//  private List<Contract> getConsBy
+  
+  /**
+   * 
+   *@Title:getCons  
+   * @Description:TODO 获取已完成的合同数量
+   * @param year
+   * @return
+   * @author winxinyuan
+   */
+  public List<ConQty> getConsbyYear(String year){
+    List<ConQty> qtys=new ArrayList<ConQty>();
+    qtys=conDao.findCons(year);
+    return getMonth(qtys);
+  }
+  
+  /**
+   * 
+   *@Title:getNoCons  
+   * @Description:TODO 获取未完成合同数量
+   * @param year
+   * @return
+   * @author winxinyuan
+   */
+  public List<ConQty> getNoCons(String year){
+    List<ConQty> qtys=new ArrayList<ConQty>();
+    qtys=conDao.findConsNo(year);
+    return getMonth(qtys);
+  }
+  
+  /**
+   * 
+   *@Title:getMonth  
+   * @Description:TODO 补充空月份
+   * @param qtys
+   * @return
+   * @author winxinyuan
+   */
+  private List<ConQty> getMonth(List<ConQty> qtys){
+    List<ConQty> conqtys=new ArrayList<ConQty>();
+    if(qtys.size()<1){
+      for(int i=1;i<=12;i++){
+        ConQty c=new ConQty();
+        c.setMonth(i+"");
+        c.setQty(0);
+        conqtys.add(c);
+      }
+    }else{
+        for(int i=1;i<=12;i++){
+          for(ConQty con:qtys){
+            String ss=con.getMonth();
+          if(!con.getMonth().equals(i+"")){
+            ConQty c=new ConQty();
+            c.setMonth(i+"");
+            c.setQty(0);
+            conqtys.add(c);
+          }else{
+            conqtys.add(con);
+          }
+        }
+      }
+    }
+    return conqtys;
+  }
+  
+  public String getConNum(){
+    return conDao.findConsNum();
+  }
+  
 }

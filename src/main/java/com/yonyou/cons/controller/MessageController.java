@@ -20,7 +20,7 @@ import com.yonyou.cons.entity.Contract;
 import com.yonyou.cons.entity.Message;
 import com.yonyou.cons.entity.User;
 import com.yonyou.cons.service.ConsService;
-import com.yonyou.cons.service.EmailService;
+import com.yonyou.cons.service.EmailTask;
 import com.yonyou.cons.service.MessService;
 import com.yonyou.cons.service.UserService;
 
@@ -29,7 +29,7 @@ import com.yonyou.cons.service.UserService;
 public class MessageController {
 
   @Autowired
-  private EmailService mailServie;
+  private EmailTask mailServie;
 
   @Autowired
   private UserService userService;

@@ -25,12 +25,7 @@
 	<div style="background-image: url('img/bg5.png');" class="login">
 		<form class="form-horizontal" role="form" action="" method="post" id="logform">
 			<div class="log1">
-				<div class="input-group">
-					<span class="glyphicon glyphicon-user">&nbsp;&nbsp;<input
-						name="role" type="radio" checked="checked" value="运营人员">运营 &nbsp;&nbsp;<input
-						name="role" type="radio" value="研发人员">研发
-					</span>
-				</div>
+				
 			</div>
 			<div class="log2">
 				<div class="input-group">

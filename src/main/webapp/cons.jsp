@@ -71,12 +71,12 @@
 							<font color="a0a0a0">点击继续添加</font></a></td>
 				</tr>
 				<tr align="center">
-					<td>合同负责人：</td>
+					<td>合同负责人id：</td>
 					<td><input type="text" class="form-control" name="uname"
 						id="person1"></td>
 				</tr>
 				<tr align="center">
-					<td>合同签署人：</td>
+					<td>合同签署人id：</td>
 					<td><input type="text" class="form-control" name="username"
 						id="person2"></td>
 				</tr>
@@ -87,8 +87,10 @@
 						type="radio" name="state" value="1">已执行</td>
 				</tr>
 				<tr align="center">
-					<td colspan="2"><input type="submit" class="btn btn-info"
-						value="确认提交" onclick="checkCons()"></td>
+					<td colspan="2">
+					<a href="/mainshow.jsp">
+					<input type="submit" class="btn btn-info"
+						value="确认提交" onclick="checkCons()"></a></td>
 				</tr>
 			</table>
 		</form>

@@ -229,7 +229,8 @@ function checkCons() {
 		return false;
 	}
 	if (flag == 1) {
-		return true;
+		alert(111);
+		window.location.href = "/yonyoucon/mainshow.jsp";
 		document.getElementById('form').submit();
 	}
 }
@@ -262,7 +263,7 @@ function checkChange() {
 					name1.text(data.msg);
 				}
 				if (data.code == "0000") {
-					window.location.href = "/yonyoucon/mainshow.html";
+					window.location.href = "/yonyoucon/mainshow.jsp";
 				}
 				if (data.code == "9999") {
 					name1.text(data.msg);
