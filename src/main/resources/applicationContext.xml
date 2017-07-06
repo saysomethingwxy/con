@@ -42,4 +42,11 @@
 		<property name="maxUploadSize" value="10485760000"></property>
 		<property name="maxInMemorySize" value="40960"></property>
 	</bean>
+	<!-- 处理定时任务 -->
+	<task:scheduled-tasks scheduler="myScheduler">
+		<task:scheduled ref="mailtask" method="task"
+			cron="${task.cron}" />
+	</task:scheduled-tasks>
+
+	<task:scheduler id="myScheduler" pool-size="5" />
 </beans>

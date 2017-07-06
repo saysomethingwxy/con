@@ -109,5 +109,14 @@ public interface ConDao {
    * @author winxinyuan
    */
   public String findConsNum();
+  
+  /**
+   * 
+   *@Title:getEmailForCon  
+   * @Description:TODO 获取用户邮箱
+   * @return
+   * @author winxinyuan
+   */
+  public List<User> getEmailForCon(@Param (value="date") String date);
 
 }

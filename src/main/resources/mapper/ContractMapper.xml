@@ -18,12 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		<result column="invqty" property="invqty" jdbcType="INTEGER" />
 	</resultMap>
-	<resultMap type="com.yonyou.cons.entity.ConQty"
-		id="ConQtyMap">
+	<resultMap type="com.yonyou.cons.entity.ConQty" id="ConQtyMap">
 		<result column="month" property="month" jdbcType="VARCHAR" />
 		<result column="count" property="qty" jdbcType="INTEGER" />
 	</resultMap>
-	
+	<resultMap type="com.yonyou.cons.entity.User" id="User">
+		<result column="email" property="email" jdbcType="VARCHAR" />
+	</resultMap>
+
 	<sql id="cons">
 		con.conid,
 		con.conname,
@@ -121,6 +123,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 查询合同总数量 -->
 	<select id="findConsNum" resultType="String">
-		SELECT COUNT(1) FROM contract
+		SELECT COUNT(1) FROM
+		contract
+	</select>
+	<!-- 根据月份查看临期合同的用户邮箱 -->
+	<select id="getEmailForCon" parameterType="String" resultMap="User">
+		SELECT u.email FROM contract c INNER JOIN USER u ON
+		c.userid=u.userid WHERE c.endtime LIKE "${date}%" and c.state=0 GROUP BY u.email
 	</select>
 </mapper>

@@ -1,17 +1,10 @@
 package com.yonyou.cons.service;
 
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
-import java.util.Random;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,48 +14,50 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.yonyou.cons.dao.ConDao;
+import com.yonyou.cons.entity.Contract;
+import com.yonyou.cons.entity.User;
 /**
- * 邮件提醒消息
- * 
+ * 系统检测提示邮件
  * @author weixy
  *
  */
-@Component
-public class EmailService {
+@Component("mailtask")
+public class SysEmailService {
 
-  private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
+  private static final Logger logger = LoggerFactory.getLogger(SysEmailService.class);
 
   @Autowired
   private JavaMailSender mailSender;
 
   private String receiver;
+  
+  @Autowired
+  private UserService userService;
+  
+  @Autowired
+  private ConDao condao;
 
   @Autowired
   @Value("${mail.smtp.username}")
   private String emailFrom;
   
-  @Autowired
-  private StringRedisTemplate template;
-  
-  private int code=0;
-
-  public void eamil(String rev,String type) {
-    String text=null;
-    if(type.equals("register")){
-      code=(int)((Math.random()*9+1)*100000);
-      //缓存处理
-     // template.opsForValue().set("ss", code+"");
-      text="用友电子合同平台的注册验证码是："+code+"。";
+  public void task(){
+    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM");
+    String date=format.format(new Date());
+    List<User> user=condao.getEmailForCon(date);
+    if(user.size()<1){
+      return;
     }
-    if(type.equals("mess")){
-      text="您有一条新的合同提醒消息，请及时登录查看！";
+    for(User u:user){
+      eamil(u.getEmail());
     }
-    if(type.equals("forget")){
-      text="用友电子合同平台的找回密码验证码是："+code+"。";  
-    }
+  }
+  public void eamil(String rev) {
+    String text="用友电子合同平台提醒您：本月有需要完成的临期的合同请登录查看！";
+   
     JavaMailSenderImpl senderImpl = new JavaMailSenderImpl();
     // 设定mail server
     senderImpl.setHost("smtp.163.com");
@@ -70,8 +65,7 @@ public class EmailService {
     // 建立邮件消息
     SimpleMailMessage mailMessage = new SimpleMailMessage();
     // 设置收件人，寄件人 用数组发送多个邮件
-    // String[] array = new String[] {"sun111@163.com","sun222@sohu.com"};
-    // mailMessage.setTo(array);
+    //mailMessage.setTo(array);
     mailMessage.setTo(rev);
     mailMessage.setFrom("aiweix@163.com ");
     mailMessage.setSubject("用友电子合同平台消息提醒 ");
@@ -87,10 +81,6 @@ public class EmailService {
     // 发送邮件
     senderImpl.send(mailMessage);
     logger.debug("发送邮件成功！");
-  }
-  
-  public int getCode(){
-    return code;
   }
 }
 
